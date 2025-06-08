@@ -8,9 +8,11 @@ import {
   FormControl,
   InputLabel,
 } from "@mui/material";
+import { CustomSelect } from "./CustomSelect";
 
 const DynamicFormField = ({ field, value = "", onChange, label }) => {
   const handleInputChange = (e) => {
+    console.log(e.target.value, field.name, "ddd");
     onChange(field.name, e.target.value);
   };
 
@@ -18,36 +20,12 @@ const DynamicFormField = ({ field, value = "", onChange, label }) => {
     case "select":
       const selectValue = value || field.default || field.options[0] || "";
       return (
-        <FormControl fullWidth margin="normal">
-          <InputLabel>{label}</InputLabel>
-          <Select
-            value={selectValue}
-            label={label}
-            onChange={handleInputChange}
-            sx={{
-              backgroundColor: "white",
-              "& .MuiSelect-select": {
-                backgroundColor: "white",
-              },
-              "& .MuiPaper-root": {
-                zIndex: 9999,
-              },
-            }}
-            MenuProps={{
-              PaperProps: {
-                sx: {
-                  zIndex: 9999,
-                },
-              },
-            }}
-          >
-            {field.options.map((option) => (
-              <MenuItem key={option} value={option}>
-                {option}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        <CustomSelect
+          label={label}
+          value={selectValue}
+          options={field.options}
+          onChange={(val) => onChange(field.name, val)}
+        />
       );
 
     case "text":

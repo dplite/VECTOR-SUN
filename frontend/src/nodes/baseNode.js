@@ -1,5 +1,5 @@
 import { Handle, Position } from "reactflow";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import DynamicFormField from "../components/DynamicFormField";
 import { customFields } from "../config";
 
@@ -37,7 +37,7 @@ export const BaseNode = ({
     background: "#ffffff",
     width: "12px",
     height: "12px",
-    border: "2px solid #16a34a", // green-600
+    border: "2px solid #16a34a",
   };
 
   const handleFieldChange = (fieldName, value) => {
@@ -50,10 +50,10 @@ export const BaseNode = ({
   return (
     <div
       style={{ ...nodeStyle }}
-      className={`px-5 py-4 w-80 border-2 bg-white flex flex-col gap-2  border-blue-600 shadow-lg rounded-lg  ${className}`}
+      className={`px-5 py-4 w-80 border-2 bg-white flex flex-col gap-2  border-gray-500 shadow-lg rounded-lg  ${className}`}
     >
       <div>
-        <span className="text-green-700 text-lg font-semibold">{label}</span>
+        <span className="text-gray-700 text-lg font-semibold">{label}</span>
       </div>
 
       {children && <div>{children}</div>}
