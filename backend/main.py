@@ -67,4 +67,3 @@ async def parse_pipeline(pipeline: PipelineModel):
 
 
 
-    // used gpt for python.
